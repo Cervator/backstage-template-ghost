@@ -1,0 +1,26 @@
+ghost:
+  ghostEmail: ${{ values.email }}
+  # For some bizarre reason setting this causes Ghost to fail startup - can get from the `ghost` secret instead
+  #ghostPassword: ghostPass12345
+  # This works. Really could just enable email and make a new customer reset their password to start?
+  existingSecret: initial-ghost-secret
+  ghostBlogTitle: ${{ values.title }}
+  ghostHost: https://${{ values.name }}.cmdbee.org
+  ghostEnableHttps: true
+  ingress:
+    enabled: true
+    hostname: ${{ values.name }}.cmdbee.org
+    annotations:
+      kubernetes.io/ingress.class: "nginx"
+      cert-manager.io/cluster-issuer: letsencrypt-prod
+      kubernetes.io/tls-acme: "true"
+    tls:
+    - secretName: ${{ values.name }}-tls-secret
+      hosts:
+      - ${{ values.name }}.cmdbee.org
+  service:
+      type: ClusterIP
+  # Quirk: Helm preview shows a warning if annotations here is empty, breaks creation of the service account
+  serviceAccount:
+    annotations:
+      foo: "yay"

@@ -1,0 +1,8 @@
+apiVersion: v2
+name: ghost
+version: 1.0.0
+
+dependencies:
+  - name: ghost
+    version: 19.3.19 # App version 5.52.3 when this was chosen
+    repository: oci://registry-1.docker.io/bitnamicharts

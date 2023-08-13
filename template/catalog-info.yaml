@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ${{ values.name }}
+  description: "This is a Ghost blog named ${{ values.name }}"
+  annotations:
+    github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
+
+spec:
+  type: website
+  lifecycle: experimental
+  owner: "team-a"
