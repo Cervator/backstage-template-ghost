@@ -22,7 +22,7 @@ spec:
           ui:autofocus: true
           ui:options:
             rows: 5
-        name:
+        title:
           title: Title
           type: string
           description: Title of the blog - can include spaces and special characters
