@@ -66,13 +66,6 @@ spec:
           password: ${{ parameters.password }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
 
-#    - id: fetch-docs
-#      name: Fetch Docs
-#      action: fetch:plain
-#      input:
-#        targetPath: ./community
-#        url: https://github.com/backstage/community/tree/main/backstage-community-sessions
-
     - id: publish
       name: Publish
       action: publish:github
@@ -86,7 +79,6 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
-        # repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }} - newer?
         catalogInfoPath: '/catalog-info.yaml'
   output:
     remoteUrl: ${{ steps.publish.output.remoteUrl }} # link to the remote repository
