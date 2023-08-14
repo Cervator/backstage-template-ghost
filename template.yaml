@@ -18,7 +18,7 @@ spec:
         name:
           title: Name
           type: string
-          description: Short name of blog - used in URL, Git, etc. No spaces or special characters.
+          description: Short name of blog - used in URL, Git, etc. All lower case, no spaces or special characters other than -
           ui:autofocus: true
           ui:options:
             rows: 5
@@ -37,7 +37,7 @@ spec:
         password:
           title: Password
           type: string
-          description: Initial admin password
+          description: Initial admin password (must be 10+ chars)
           ui:options:
             rows: 5
     - title: Choose a location
@@ -61,6 +61,7 @@ spec:
         url: ./template
         values:
           name: ${{ parameters.name }}
+          title: ${{ parameters.title }}
           email: ${{ parameters.email }}
           password: ${{ parameters.password }}
           destination: ${{ parameters.repoUrl | parseRepoUrl }}
@@ -85,6 +86,7 @@ spec:
       action: catalog:register
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
+        # repoContentsUrl: ${{ steps['publish'].output.repoContentsUrl }} - newer?
         catalogInfoPath: '/catalog-info.yaml'
   output:
     remoteUrl: ${{ steps.publish.output.remoteUrl }} # link to the remote repository

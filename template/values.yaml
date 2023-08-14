@@ -3,7 +3,7 @@ ghost:
   # For some bizarre reason setting this causes Ghost to fail startup - can get from the `ghost` secret instead
   #ghostPassword: ghostPass12345
   # This works. Really could just enable email and make a new customer reset their password to start?
-  existingSecret: initial-ghost-secret
+  existingSecret: initial-${{ values.name }}-secret
   ghostBlogTitle: ${{ values.title }}
   ghostHost: https://${{ values.name }}.cmdbee.org
   ghostEnableHttps: true
