@@ -40,6 +40,7 @@ spec:
           description: Initial admin password (must be 10+ chars)
           ui:options:
             rows: 5
+
     - title: Choose a location
       required:
         - repoUrl
@@ -80,6 +81,20 @@ spec:
       input:
         repoContentsUrl: ${{ steps.publish.output.repoContentsUrl }}
         catalogInfoPath: '/catalog-info.yaml'
+
+
   output:
     remoteUrl: ${{ steps.publish.output.remoteUrl }} # link to the remote repository
     entityRef: ${{ steps.register.output.entityRef }} # link to the entity that has been ingested to the catalog
+    links:
+      - title: Repository
+        url: ${{ steps['publish'].output.remoteUrl }} # link to the remote repository
+      - title: Blog URL
+        url: ${{ steps['fetch-base'].output.name }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps['register'].output.entityRef }} # link to the entity that has been ingested to the catalog
+    text:
+      - title: More information
+        content: |
+          **Entity URL:** `${{ steps['publish'].output.remoteUrl }}`
