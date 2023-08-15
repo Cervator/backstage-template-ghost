@@ -6,6 +6,14 @@ metadata:
   annotations:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
 
+  links:
+    - url: https://${{ values.name }}.cmdbee.org
+      title: Blog home
+      icon: dashboard
+    - url: https://${{ values.name }}.cmdbee.org/ghost
+      title: Blog admin
+      icon: dashboard
+
 spec:
   type: website
   lifecycle: experimental
