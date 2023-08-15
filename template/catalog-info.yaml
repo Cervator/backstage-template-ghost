@@ -17,4 +17,5 @@ metadata:
 spec:
   type: website
   lifecycle: experimental
-  owner: "team-a"
+  owner: lamb-goat
+  system: ghost-blogs
