@@ -37,7 +37,7 @@ spec:
         password:
           title: Password
           type: string
-          description: Initial admin password (must be 10+ chars and Base64 encoded)
+          description: Initial admin password (must be 10+ chars)
           ui:options:
             rows: 5
 
