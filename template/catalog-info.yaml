@@ -7,10 +7,10 @@ metadata:
     github.com/project-slug: ${{values.destination.owner + "/" + values.destination.repo}}
 
   links:
-    - url: https://${{ values.name }}.cmdbee.org
+    - url: https://${{ values.name }}.terasology.io
       title: Blog home
       icon: dashboard
-    - url: https://${{ values.name }}.cmdbee.org/ghost
+    - url: https://${{ values.name }}.terasology.io
       title: Blog admin
       icon: dashboard
 

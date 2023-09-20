@@ -5,11 +5,11 @@ ghost:
   # This works. Really could just enable email and make a new customer reset their password to start?
   existingSecret: initial-${{ values.name }}-secret
   ghostBlogTitle: ${{ values.title }}
-  ghostHost: https://${{ values.name }}.cmdbee.org
+  ghostHost: https://${{ values.name }}.terasology.io
   ghostEnableHttps: true
   ingress:
     enabled: true
-    hostname: ${{ values.name }}.cmdbee.org
+    hostname: ${{ values.name }}.terasology.io
     annotations:
       kubernetes.io/ingress.class: "nginx"
       cert-manager.io/cluster-issuer: letsencrypt-prod
@@ -17,7 +17,7 @@ ghost:
     tls:
     - secretName: ${{ values.name }}-tls-secret
       hosts:
-      - ${{ values.name }}.cmdbee.org
+      - ${{ values.name }}.terasology.io
   service:
       type: ClusterIP
   # Quirk: Helm preview shows a warning if annotations here is empty, breaks creation of the service account

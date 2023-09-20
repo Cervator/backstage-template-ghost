@@ -4,6 +4,6 @@ Changes made here can be picked up by Argo CD, ever watching for updates to depl
 
 To use Ghost in general see the documentation at https://ghost.org/docs/
 
-To see your new blog visit https://${{ values.name }}.cmdbee.org - note that the user system here is separate from your chosen admin user.
+To see your new blog visit https://${{ values.name }}.terasology.io - note that the user system here is separate from your chosen admin user.
 
-To enter the admin section go to https://${{ values.name }}.cmdbee.org/ghost then use the email + password you supplied during setup.
+To enter the admin section go to https://${{ values.name }}.terasology.io/ghost then use the email + password you supplied during setup.
